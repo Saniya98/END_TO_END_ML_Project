@@ -2,7 +2,11 @@ import os
 import sys
 from dataclasses import dataclass
 
-from catboost import CatBoostRegressor
+try:
+    from catboost import CatBoostRegressor
+except ImportError:
+    CatBoostRegressor = None
+
 from sklearn.ensemble import(
     AdaBoostRegressor,
     GradientBoostingRegressor,
